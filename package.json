@@ -1,6 +1,6 @@
 {
   "name": "@alorel/rollup-plugin-userscript",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Compiles a metablock and, optionally, emits a separate meta file.",
   "main": "index.js",
   "module": "esm/index.js",
