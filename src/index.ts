@@ -1,3 +1,3 @@
 export {UserscriptDefinition} from './lib/UserscriptDefinition';
-export {getPkgVersion} from './get-pkg-version';
-export {UserscriptPluginOpts, userscriptPlugin} from './plugin';
+export {getPkgVersion} from './lib/get-pkg-version';
+export {UserscriptPluginOpts, userscriptPlugin} from './lib/plugin';
