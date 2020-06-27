@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "lazy-get-decorator": "^2.0.0",
+    "magic-string": "^0.25.7",
     "tslib": "^2.0.0 || ^1.7.0"
   },
   "peerDependencies": {

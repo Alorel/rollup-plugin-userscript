@@ -40,6 +40,7 @@ export default ({watch}) => {
     external: [
       'lazy-get-decorator',
       'tslib',
+      'magic-string',
       'path',
       'fs'
     ],
