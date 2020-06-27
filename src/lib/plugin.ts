@@ -1,7 +1,7 @@
 import {OutputPlugin, PluginContext} from 'rollup';
-import {resolveMetadataLoader} from './lib/meta-runner';
-import {MetablockStringifier} from './lib/MetablockStringifier';
-import {UserscriptDefinition} from './lib/UserscriptDefinition';
+import {resolveMetadataLoader} from './meta-runner';
+import {MetablockStringifier} from './MetablockStringifier';
+import {UserscriptDefinition} from './UserscriptDefinition';
 
 export interface UserscriptPluginOpts {
   /** If provided, a metadata file will be emitted */
@@ -15,6 +15,7 @@ export function userscriptPlugin(opts: UserscriptPluginOpts): OutputPlugin {
   if (!opts) {
     throw new Error('Options required');
   }
+
   const {
     metaFileName,
     userscript
@@ -27,16 +28,16 @@ export function userscriptPlugin(opts: UserscriptPluginOpts): OutputPlugin {
   const getMetablock = resolveMetadataLoader(userscript);
   let metaString: string;
 
-  function onMetablockGenerated(def: UserscriptDefinition): string {
-    return metaString = new MetablockStringifier(def).toString();
-  }
-
   const out: OutputPlugin = {
     name: 'userscript-plugin',
-    banner(): Promise<string> {
-      return getMetablock().then(onMetablockGenerated);
+    async banner(): Promise<string> {
+      const metaBlock = await getMetablock();
+      metaString = new MetablockStringifier(metaBlock).toString();
+
+      return metaString;
     }
   };
+
   if (metaFileName) {
     out.generateBundle = function (this: PluginContext) {
       this.emitFile({

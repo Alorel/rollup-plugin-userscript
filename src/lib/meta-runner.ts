@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import {promises as fs} from 'fs';
 import {UserscriptDefinition} from './UserscriptDefinition';
 
 /** @internal */
@@ -9,57 +9,33 @@ export function resolveMetadataLoader(
   userscript: UserscriptDefinition | (() => UserscriptDefinition | Promise<UserscriptDefinition>)
 ): MetaRunner {
   if (typeof userscript === 'function') {
-    return () => {
-      return Promise
-        .all([
-          resolveBareMeta(),
-          runUserscriptFn(userscript)
-        ])
-        .then(([bareMeta, fullMeta]): UserscriptDefinition => ({
-          ...bareMeta,
-          ...fullMeta
-        }));
+    return async function functionMetadataLoader(): Promise<UserscriptDefinition> {
+      const [bareMeta, fullMeta] = await Promise.all([resolveBareMeta(), runUserscriptFn(userscript)]);
+
+      return {...bareMeta, ...fullMeta};
     };
   } else if (userscript.version && userscript.name) {
     const ret = Promise.resolve(userscript);
 
-    return () => ret;
+    return function constantMetadataLoader(): Promise<UserscriptDefinition> {
+      return ret;
+    };
   } else {
-    return () => {
-      return resolveBareMeta()
-        .then((bareMeta): UserscriptDefinition => ({
-          ...bareMeta,
-          ...userscript
-        }));
+    return async function partialMetadataLoader(): Promise<UserscriptDefinition> {
+      const bareMeta = await resolveBareMeta();
+
+      return {...bareMeta, ...userscript};
     };
   }
 }
 
 type BareMeta = Required<Pick<UserscriptDefinition, 'version' | 'name'>>;
 
-function resolveBareMeta(): Promise<BareMeta> {
-  return new Promise<BareMeta>((resolve, reject) => {
-    fs.readFile('./package.json', 'utf8', (err, data) => {
-      if (err) {
-        reject(err);
-      } else {
-        let json: any;
-        try {
-          json = JSON.parse(data);
-        } catch (e) {
-          reject(e);
+async function resolveBareMeta(): Promise<BareMeta> {
+  const data = await fs.readFile('./package.json', 'utf8');
+  const {name, version} = JSON.parse(data);
 
-          return;
-        }
-
-        resolve({name: json.name, version: json.version});
-      }
-    });
-  });
-}
-
-function isPromise<T>(v: any): v is Promise<T> {
-  return !!v && typeof v.then === 'function' && typeof v.catch === 'function';
+  return {name, version};
 }
 
 function runUserscriptFn(
@@ -72,5 +48,5 @@ function runUserscriptFn(
     return Promise.reject(e);
   }
 
-  return isPromise(result$) ? result$ : Promise.resolve(result$);
+  return Promise.resolve(result$);
 }
