@@ -13,6 +13,8 @@
     "rollup": "rollup -c",
     "release": "semantic-release",
     "lint": "tslint -s node_modules/custom-tslint-formatters/formatters -t grouped -p .",
+    "typecheck": "tsc --noEmit --outDir dist",
+    "typecheck:watch": "yarn run typecheck --watch",
     "lint:fix": "yarn run lint --fix",
     "rollup:watch": "yarn run rollup --watch"
   },
