@@ -4,14 +4,14 @@
 __metadata:
   version: 4
 
-"@alorel-personal/conventional-changelog-alorel@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "@alorel-personal/conventional-changelog-alorel@npm:2.1.2"
+"@alorel-personal/conventional-changelog-alorel@npm:^2.1.3":
+  version: 2.1.3
+  resolution: "@alorel-personal/conventional-changelog-alorel@npm:2.1.3"
   dependencies:
-    conventional-changelog-angular: ^5.0.3
-    json5: ^2.1.0
-    lodash: ^4.17.14
-  checksum: 2/6a2dc4cab9b0cd2662f922716c9dc777e91d858e965099e866a790a536294486171b1365818366a9fd7111db5dd42e9fb55cf03445a381e902ff539af2f5fc6e
+    conventional-changelog-angular: ^5.0.6
+    json5: ^2.1.3
+    lodash: ^4.17.15
+  checksum: 2/cd94cb77e1718114e276464cfd6883719daa6b4f4dffa5db5db81885dc3d85c7920efb316c74b8bd3322133df37660442fcc7b3d8a8ecc3b5ba2c22531f05bcc
   languageName: node
   linkType: hard
 
@@ -37,7 +37,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alorel/rollup-plugin-copy-pkg-json@npm:^1.0.2":
+"@alorel/rollup-plugin-copy-pkg-json@npm:^1.0.3":
   version: 1.0.3
   resolution: "@alorel/rollup-plugin-copy-pkg-json@npm:1.0.3::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40alorel%2Frollup-plugin-copy-pkg-json%2F1.0.3%2F267f7e32b6d91360ce7b7c8a3af9d4e00cc9326a27d1ffe10fa97657335e66f6"
   dependencies:
@@ -48,7 +48,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alorel/rollup-plugin-copy@npm:^1.0.0":
+"@alorel/rollup-plugin-copy@npm:^1.0.1":
   version: 1.0.1
   resolution: "@alorel/rollup-plugin-copy@npm:1.0.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40alorel%2Frollup-plugin-copy%2F1.0.1%2Ffc7c18f617455d937f934c938f30c2b024a2fce66f83e3ac6389c5975aac6137"
   dependencies:
@@ -60,15 +60,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alorel/rollup-plugin-dts@npm:^1.1.0":
-  version: 1.1.1
-  resolution: "@alorel/rollup-plugin-dts@npm:1.1.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40alorel%2Frollup-plugin-dts%2F1.1.1%2F79444b11d57dba17968dfa0f6490d333f4022fd2d9b1b3277c484caf13a28caf"
+"@alorel/rollup-plugin-dts@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@alorel/rollup-plugin-dts@npm:2.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40alorel%2Frollup-plugin-dts%2F2.0.0%2Fad1251766fbfa76d2f537419f0de96b32b61a7f3e7f9b42c9d9d84a3824b64dd"
   dependencies:
-    "@rollup/pluginutils": ^3.0.9
+    bluebird: ^3.7.0
+    cross-spawn: ^7.0.0
+    glob: ^7.0.0
+    tmp: ^0.2.0
   peerDependencies:
     rollup: ^2.6.0 || ^1.30.0
     typescript: ^3.5.0
-  checksum: 2/bc2f3460cd52cc065aeae1f73ed2cdf73230437f9901b97d05146c1d4abcd0341b18787e49c60bc764a1074d345b290e4831eb463be8341c8e5ed0b386b03891
+  checksum: 2/16d3b4b748c7f0a62021a489d7dfbf69075549f38e4ae4fd8bb51b67aad4d085b8ca481a66ec12d6adf00093c1c484139162776868b52b6ccb87607cbfe407f4
   languageName: node
   linkType: hard
 
@@ -76,27 +79,27 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alorel/rollup-plugin-userscript@workspace:."
   dependencies:
-    "@alorel-personal/conventional-changelog-alorel": ^2.1.2
+    "@alorel-personal/conventional-changelog-alorel": ^2.1.3
     "@alorel-personal/tslint-rules": ^5.0.7
     "@alorel/rollup-plugin-clean": ^1.0.0
-    "@alorel/rollup-plugin-copy": ^1.0.0
-    "@alorel/rollup-plugin-copy-pkg-json": ^1.0.2
-    "@alorel/rollup-plugin-dts": ^1.1.0
+    "@alorel/rollup-plugin-copy": ^1.0.1
+    "@alorel/rollup-plugin-copy-pkg-json": ^1.0.3
+    "@alorel/rollup-plugin-dts": ^2.0.0
     "@rollup/plugin-node-resolve": ^8.1.0
     "@semantic-release/changelog": ^5.0.1
     "@semantic-release/exec": ^5.0.0
     "@semantic-release/git": ^9.0.0
-    "@semantic-release/github": ^7.0.5
+    "@semantic-release/github": ^7.0.7
     "@semantic-release/npm": ^7.0.5
-    "@types/node": ^13.13.1
+    "@types/node": ^14.0.14
     custom-tslint-formatters: ^2.4.0
     lazy-get-decorator: ^2.0.0
-    rollup: ^2.6.1
+    rollup: ^2.18.1
     rollup-plugin-typescript2: ^0.27.1
-    semantic-release: ^17.0.6
+    semantic-release: ^17.1.1
     tslib: ^2.0.0 || ^1.7.0
-    tslint: ^6.1.1
-    typescript: ^3.8.3
+    tslint: ^6.1.2
+    typescript: ^3.9.5
   peerDependencies:
     rollup: ^2.6.0 || ^1.30.0
   languageName: unknown
@@ -325,19 +328,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/pluginutils@npm:^3.0.9":
-  version: 3.0.9
-  resolution: "@rollup/pluginutils@npm:3.0.9"
-  dependencies:
-    "@types/estree": 0.0.39
-    estree-walker: ^1.0.1
-    micromatch: ^4.0.2
-  peerDependencies:
-    rollup: ^1.20.0||^2.0.0
-  checksum: 2/5c4629a8ecd5967611dec648f968e03d7bf1b64672daf1cf85ebf8a2077f95248e96e7bc4dd778a940bede3b6d8d15c6d22f2fba3eb95fab8e01624b996604f2
-  languageName: node
-  linkType: hard
-
 "@semantic-release/changelog@npm:^5.0.1":
   version: 5.0.1
   resolution: "@semantic-release/changelog@npm:5.0.1"
@@ -410,7 +400,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/github@npm:^7.0.0, @semantic-release/github@npm:^7.0.5":
+"@semantic-release/github@npm:^7.0.0":
   version: 7.0.5
   resolution: "@semantic-release/github@npm:7.0.5"
   dependencies:
@@ -433,6 +423,32 @@ __metadata:
   peerDependencies:
     semantic-release: ">=16.0.0 <18.0.0"
   checksum: 2/16312cb196c68fc676528bcb0b81696d81144fc181bc293f3a0d9bcbb931a5e0bf807594538063679ba05a45108be4e7498e8680999a817e2d3d442779d82d80
+  languageName: node
+  linkType: hard
+
+"@semantic-release/github@npm:^7.0.7":
+  version: 7.0.7
+  resolution: "@semantic-release/github@npm:7.0.7"
+  dependencies:
+    "@octokit/rest": ^17.0.0
+    "@semantic-release/error": ^2.2.0
+    aggregate-error: ^3.0.0
+    bottleneck: ^2.18.1
+    debug: ^4.0.0
+    dir-glob: ^3.0.0
+    fs-extra: ^9.0.0
+    globby: ^11.0.0
+    http-proxy-agent: ^4.0.0
+    https-proxy-agent: ^5.0.0
+    issue-parser: ^6.0.0
+    lodash: ^4.17.4
+    mime: ^2.4.3
+    p-filter: ^2.0.0
+    p-retry: ^4.0.0
+    url-join: ^4.0.0
+  peerDependencies:
+    semantic-release: ">=16.0.0 <18.0.0"
+  checksum: 2/7c73fbf202a6840771d68c2d364e2a5cbb6b20a36154dcba32934ca743e2f71f6420133ec7888dade88b8af8ee02d2f2b9ff04e01d90abc865f89a07f656c90f
   languageName: node
   linkType: hard
 
@@ -525,10 +541,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^13.13.1":
+"@types/node@npm:*, @types/node@npm:>= 8":
   version: 13.13.2
   resolution: "@types/node@npm:13.13.2"
   checksum: 2/de03e2f34b92655ae6f89abfed3362559751d0ae4f35905b6a931dca03e1e9cb4f51b104f509661b1df03baafdaab5b44d6a142620c67cb907af821f5481df32
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^14.0.14":
+  version: 14.0.14
+  resolution: "@types/node@npm:14.0.14"
+  checksum: 2/0a2072aa7de32e6535ce6bc7383965fc0a4b7bbf6d76f69027db72e86381921c820a8a2173f75fa210d9fb3286c707079d3804ef33c76a065bcb890858e50ee9
   languageName: node
   linkType: hard
 
@@ -874,7 +897,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bluebird@npm:^3.5.1, bluebird@npm:^3.5.3, bluebird@npm:^3.5.5":
+"bluebird@npm:^3.5.1, bluebird@npm:^3.5.3, bluebird@npm:^3.5.5, bluebird@npm:^3.7.0":
   version: 3.7.2
   resolution: "bluebird@npm:3.7.2"
   checksum: 2/4f2288662f3d4eadbb82d4daa4a7d7976a28fa3c7eb4102c9b4033b03e5be4574ba123ac52a7c103cde4cb7b2d2afc1dbe41817ca15a29ff21ecd258d0286047
@@ -1296,6 +1319,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"compare-func@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "compare-func@npm:2.0.0"
+  dependencies:
+    array-ify: ^1.0.0
+    dot-prop: ^5.1.0
+  checksum: 2/825690b828f028acf270578cd4d9ea0751987b474095cd47093a29ac087a21e5de2db86b83cc0cecb935dfca952ba8bbcd7ead240fe6b3b7ecb1a66a8b109d28
+  languageName: node
+  linkType: hard
+
 "concat-map@npm:0.0.1":
   version: 0.0.1
   resolution: "concat-map@npm:0.0.1"
@@ -1346,13 +1379,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-angular@npm:^5.0.0, conventional-changelog-angular@npm:^5.0.3":
+"conventional-changelog-angular@npm:^5.0.0":
   version: 5.0.6
   resolution: "conventional-changelog-angular@npm:5.0.6"
   dependencies:
     compare-func: ^1.3.1
     q: ^1.5.1
   checksum: 2/ebcc9806da49c92ebef56f603bb776143eb052ad95452e1612c49c1b2d197cf220bfc2e32646e19b58c9b6129ec3910e639dbfb3cb0e4afb058adf8b79d4e7a9
+  languageName: node
+  linkType: hard
+
+"conventional-changelog-angular@npm:^5.0.6":
+  version: 5.0.11
+  resolution: "conventional-changelog-angular@npm:5.0.11"
+  dependencies:
+    compare-func: ^2.0.0
+    q: ^1.5.1
+  checksum: 2/aecf4183da548e678341c2ff77e48b9d523e9c43a99522dc36f0b8a58fdf34bd4959f4ce341bb220634ee9f5af450d64b11b3ae743fbde2537be686b6615f7c6
   languageName: node
   linkType: hard
 
@@ -1728,6 +1771,15 @@ __metadata:
   dependencies:
     is-obj: ^1.0.0
   checksum: 2/6dadca2215c4844f8313828a67f4398c87e1dae263a111aa7e9255aecf31647bb4a6e80efdd7a768bb170d47c96265bb744ff659dbf1aa7c8c78d4cfe69be20c
+  languageName: node
+  linkType: hard
+
+"dot-prop@npm:^5.1.0":
+  version: 5.2.0
+  resolution: "dot-prop@npm:5.2.0"
+  dependencies:
+    is-obj: ^2.0.0
+  checksum: 2/d2f62e0b5ec467edb8e278ab6070955f0a4aec973ec1fa837ff6152f3cdd96cd2a04c7e2626cb3eac4f639b8f6786b5b87d3c01df7ba729693c636cb78b7ae93
   languageName: node
   linkType: hard
 
@@ -2348,7 +2400,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
+"glob@npm:^7.0.0, glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
   version: 7.1.6
   resolution: "glob@npm:7.1.6"
   dependencies:
@@ -2893,6 +2945,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-obj@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "is-obj@npm:2.0.0"
+  checksum: 2/ffa67ed5df66e37757876cd976380737a0430551789a0457b8c031eaedef8f5c6bc4ab6d903e529efb777545f8718ab73d9badde61c8b08720a3747ccff0b2a0
+  languageName: node
+  linkType: hard
+
 "is-path-cwd@npm:^2.2.0":
   version: 2.2.0
   resolution: "is-path-cwd@npm:2.2.0"
@@ -3103,7 +3162,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json5@npm:^2.1.0":
+"json5@npm:^2.1.3":
   version: 2.1.3
   resolution: "json5@npm:2.1.3"
   dependencies:
@@ -3580,7 +3639,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.4":
+"lodash@npm:^4.17.15, lodash@npm:^4.17.4":
   version: 4.17.15
   resolution: "lodash@npm:4.17.15"
   checksum: 2/aec3fbb7570aa67bda500b8299b1b1821d60646bede87f76a74dfcc7666ab3445267d734ec71424d70809d52ad67a1356fab5ab694a3faa1908d68e9d48f00f5
@@ -5411,9 +5470,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.6.1":
-  version: 2.7.2
-  resolution: "rollup@npm:2.7.2"
+"rollup@npm:^2.18.1":
+  version: 2.18.1
+  resolution: "rollup@npm:2.18.1"
   dependencies:
     fsevents: ~2.1.2
   dependenciesMeta:
@@ -5421,7 +5480,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 2/94758628972ce91702f8d438a2709971fbca02f47735d056bb1265bb4b284b77665b81746ecbd08490e6c5e94631b1767e754d07678ca080fcbb39c00905ea56
+  checksum: 2/d4ebbe86b90a7ed14e2b4a44739ffacd427526bea81bedc438bdb182a3dcb687a32ac857bcb73ef87cc6041609844cfe4672f1f57417486bad532223d274bd2a
   languageName: node
   linkType: hard
 
@@ -5462,9 +5521,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:17.0.7, semantic-release@npm:^17.0.6":
-  version: 17.0.7
-  resolution: "semantic-release@npm:17.0.7"
+"semantic-release@npm:17.1.1, semantic-release@npm:^17.1.1":
+  version: 17.1.1
+  resolution: "semantic-release@npm:17.1.1"
   dependencies:
     "@semantic-release/commit-analyzer": ^8.0.0
     "@semantic-release/error": ^2.2.0
@@ -5496,7 +5555,7 @@ __metadata:
     yargs: ^15.0.1
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: 2/3ae7f88cc035c94e36cdf512705825e0965ec64d3fbcae743e113fb43b785b8ffc2de2af3a31700c5288e2baa3968e809e59bc8319a1e683c675f8a5838d9745
+  checksum: 2/991b468ef8d602f1635512d9b4ea2bf8614da2f5fcd0b88158d191107be2661c8d8ff014fececb354c238e32939847ab4f1e7597f0c2c8a254ba6081d11da3f6
   languageName: node
   linkType: hard
 
@@ -6132,6 +6191,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tmp@npm:^0.2.0":
+  version: 0.2.1
+  resolution: "tmp@npm:0.2.1"
+  dependencies:
+    rimraf: ^3.0.0
+  checksum: 2/13973825ff1c7aed3359bba97c146c860ebb5b1cbdca88387a2ff8bae704d2478b701cc3adc29b1461be292fed1e4ae56b378b6a0386bbab471ef32860e0a711
+  languageName: node
+  linkType: hard
+
 "to-regex-range@npm:^5.0.1":
   version: 5.0.1
   resolution: "to-regex-range@npm:5.0.1"
@@ -6232,9 +6300,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslint@npm:^6.1.1":
-  version: 6.1.1
-  resolution: "tslint@npm:6.1.1"
+"tslint@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "tslint@npm:6.1.2"
   dependencies:
     "@babel/code-frame": ^7.0.0
     builtin-modules: ^1.1.1
@@ -6253,7 +6321,7 @@ __metadata:
     typescript: ">=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >=3.0.0-dev || >= 3.1.0-dev || >= 3.2.0-dev"
   bin:
     tslint: bin/tslint
-  checksum: 2/f2865a5f2ccc5b9f098cb4aa93ca7850d85984136d652c2bb8436ec1646a7c2fe0056c5bd5ef48ac883f30888ea04ef5a5718ab405d5e7ea8f14a3bb95e37745
+  checksum: 2/b9394631137f90521b0cd81ca69d7d4824607a9dc26e69d2c673cc48e9eb221572153f4d448893f31a238f4287d13afc4b32863d8befacb1a5c73b5e10dbffa8
   languageName: node
   linkType: hard
 
@@ -6319,13 +6387,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:>=2.2.0 <4.0.0, typescript@npm:^3.8.3":
+"typescript@npm:>=2.2.0 <4.0.0":
   version: 3.8.3
   resolution: "typescript@npm:3.8.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 2/519b11576247fe3570d89a2aa757d8f666aafc0cb9465a6cdd4df09c1dc6bf7285f0c6008d2ac7a55ea26457e767aaab819f58439d80af2cce1d9805b2be1034
+  languageName: node
+  linkType: hard
+
+"typescript@npm:^3.9.5":
+  version: 3.9.5
+  resolution: "typescript@npm:3.9.5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 2/15618435493667083eb43dc7b36c4d3dd47fd9e9c8a14f0ac4019bbf6124b6cc518b6ed506400913db1bf50831207ee8201b5d827680076930b562923f4f18a0
   languageName: node
   linkType: hard
 
