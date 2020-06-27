@@ -1,62 +1,72 @@
-import typescript from 'rollup-plugin-typescript2';
 import {join} from 'path';
-import {dependencies, peerDependencies} from './package.json';
 import {cleanPlugin} from '@alorel/rollup-plugin-clean';
-import {copyPkgJsonPlugin as copyPkgJson} from '@alorel/rollup-plugin-copy-pkg-json';
-import {dtsPlugin as dts} from '@alorel/rollup-plugin-dts';
-import {copyPlugin as cpPlugin} from '@alorel/rollup-plugin-copy';
+import {copyPkgJsonPlugin} from "@alorel/rollup-plugin-copy-pkg-json";
+import {copyPlugin} from "@alorel/rollup-plugin-copy";
+import nodeResolve from '@rollup/plugin-node-resolve';
+import {promises as fs} from 'fs';
+import {dtsPlugin} from '@alorel/rollup-plugin-dts';
+import typescript from 'rollup-plugin-typescript2';
 
-function mkOutput(overrides = {}) {
-  return {
-    entryFileNames: '[name].js',
-    assetFileNames: '[name][extname]',
+const distDir = join(__dirname, 'dist');
+const srcDir = join(__dirname, 'src');
+
+function mkNodeResolve() {
+  return nodeResolve({
+    mainFields: ['fesm5', 'esm5', 'module', 'browser', 'main'],
+    extensions: ['.js', '.ts']
+  });
+}
+
+export default ({watch}) => {
+  const baseOutput = {
+    dir: distDir,
     sourcemap: false,
-    ...overrides
+    ...(() => {
+      if (!watch) {
+        return {
+          banner() {
+            return fs.readFile(join(__dirname, 'LICENSE'), 'utf8')
+              .then(f => `/*\n${f.trim()}\n*/\n`)
+          }
+        }
+      }
+
+      return {};
+    })()
   };
-}
 
-const baseSettings = {
-  input: join(__dirname, 'src', 'index.ts'),
-  external: Array.from(
-    new Set(
-      Object.keys(dependencies)
-        .concat(Object.keys(peerDependencies))
-        .concat('util', 'fs', 'path', 'crypto')
-    )
-  ),
-  preserveModules: true,
-  watch: {
-    exclude: 'node_modules/*'
-  }
-}
-
-function plugins(add = [], tscOpts = {}) {
-  return [
-    typescript({
-      tsconfig: join(__dirname, 'tsconfig.json'),
-      ...tscOpts
-    })
-  ].concat(add);
-}
-
-export default [
-  {
-    ...baseSettings,
-    output: mkOutput({
-      dir: join(__dirname, 'dist'),
-      format: 'cjs',
-      plugins: [
-        copyPkgJson({
-          unsetPaths: ['devDependencies', 'scripts']
-        }),
-        dts()
-      ]
-    }),
-    plugins: plugins([
-      cleanPlugin({
-        dir: join(__dirname, 'dist')
-      }),
-      cpPlugin({
+  return {
+    input: join(srcDir, 'index.ts'),
+    external: [
+      'lazy-get-decorator',
+      'tslib',
+      'path',
+      'fs'
+    ],
+    output: [
+      {
+        ...baseOutput,
+        entryFileNames: '[name].js',
+        format: 'cjs'
+      },
+      {
+        ...baseOutput,
+        entryFileNames: '[name].es.js',
+        format: 'es',
+        plugins: watch ? [] : [
+          copyPkgJsonPlugin({
+            unsetPaths: ['devDependencies', 'scripts']
+          }),
+          dtsPlugin({
+            cliArgs: ['--rootDir', 'src']
+          })
+        ]
+      }
+    ],
+    plugins: [
+      cleanPlugin({dir: distDir}),
+      mkNodeResolve(),
+      copyPlugin({
         defaultOpts: {
           glob: {
             cwd: __dirname
@@ -68,15 +78,11 @@ export default [
           'CHANGELOG.md',
           'README.md'
         ]
-      })
-    ])
-  },
-  {
-    ...baseSettings,
-    output: mkOutput({
-      dir: join(__dirname, 'dist', 'esm'),
-      format: 'esm'
-    }),
-    plugins: plugins([], {outDir: 'dist/esm'})
+      }),
+      typescript()
+    ],
+    watch: {
+      exclude: 'node_modules/*'
+    }
   }
-];
+};
