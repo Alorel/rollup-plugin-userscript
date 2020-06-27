@@ -3,7 +3,7 @@ on:
   - push
 
 jobs:
-  Typecheck:
+  PackSnapshot:
     runs-on: ubuntu-latest
     if: ${{ github.ref != 'refs/heads/master'}}
     steps:
@@ -36,8 +36,19 @@ jobs:
         env:
           YARN_ENABLE_GLOBAL_CACHE: 'false'
           YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Typecheck
-        run: yarn run typecheck
+      - name: Build
+        run: yarn run rollup
+      - name: Pack
+        run: npm pack
+        working-directory: ./dist
+      - name: Rename tarball
+        run: mv *.tgz dist.tgz
+        working-directory: ./dist
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: package.tgz
+          path: dist/dist.tgz
 
   Lint:
     runs-on: ubuntu-latest
